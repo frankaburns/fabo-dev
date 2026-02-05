@@ -11,7 +11,7 @@ Find out the state of the asteroids after all collisions. If two asteroids meet,
 
 Example 1:
 
-Input: 
+input: 
 asteroids = [5, 10, -5]
 Output: [5, 10]
 Explanation: 
@@ -115,12 +115,12 @@ public:
 	// if the higher index is less than the lower, collision.
 	//
         } else if ((a1 > 0 && a2 > 0) && (a1 > a2)) {
-           collisionType = RIGHT;
+           collisionType = NONE;
 	// The case of both left moving asteroids colliding 
 	// if the lower index is less than the higher, collision.
 	//
         } else if ((a1 < 0 && a2 < 0) && (abs(a1) < abs(a2))) {
-           collisionType = LEFT;
+           collisionType = NONE;
         }
 
        return collisionType;

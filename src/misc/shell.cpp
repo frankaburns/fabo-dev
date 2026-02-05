@@ -1,6 +1,13 @@
 // C++ implementation of Shell Sort 
 #include  <iostream> 
 using namespace std; 
+
+void printArray(int arr[], int n) 
+{ 
+    for (int i=0; i<n; i++) 
+        cout << arr[i] << " "; 
+    cout << endl;
+} 
   
 /* function to sort arr using shellSort */
 int shellSort(int arr[], int n) 
@@ -21,21 +28,18 @@ int shellSort(int arr[], int n)
             // shift earlier gap-sorted elements up until the correct  
             // location for a[i] is found 
             int j;             
-            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
+            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) { 
                 arr[j] = arr[j - gap]; 
+		printArray(arr,n);
+	    }
               
             //  put temp (the original a[i]) in its correct location 
             arr[j] = temp; 
+	    printArray(arr,n);
+	    printf("\n");
         } 
     } 
     return 0; 
-} 
-  
-void printArray(int arr[], int n) 
-{ 
-    for (int i=0; i<n; i++) 
-        cout << arr[i] << " "; 
-    cout << endl;
 } 
   
 int main() 
@@ -45,11 +49,13 @@ int main()
   
     cout << "Array before sorting: \n"; 
     printArray(arr, n); 
+    printf("\n");
   
     shellSort(arr, n); 
   
     cout << "\nArray after sorting: \n"; 
     printArray(arr, n); 
+    printf("\n");
   
     return 0; 
 } 
