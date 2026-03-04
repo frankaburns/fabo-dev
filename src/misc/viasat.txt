@@ -1,0 +1,33 @@
+		VIASAT
+		------
+
+1) Assigned to write 'C' API for Software network system.
+	a) open, close, query, login creds (SQL), rabbitMQ messaging.
+2) Integration
+	a) Orchastrator I/F OK.
+	b) SQL I/F OK.
+	c) No backend, 4-5 seperate piecies.
+	d) analysis derived integration scheme.
+	e) integrated and began testing.
+		a) worked 75-80%
+		b) reported, some fixes.
+	f) Began effort to debug system
+		a) wrote message queue and network sniffers/filters.
+	g) analyzed output, messy but useful.
+		a) wrote filter for output to extract
+			* source
+			* destination
+			* message type
+	h) Used output to document scenarios for network bring up through data transmition/reciept to teardown.
+		a) proved exterrmly useful for development to achieve 100% integration.
+	i) Used knowledge gained to derive testable requirements to verify builds and added to pipeline.
+3) program canceled.
+
+		Nikola
+		------
+1) assigned task to fix time slips on the Truch to enable accurate data assimilation.
+	a) RTC but no battery backup except from the Truck LVB.
+	b) RTC remembered time from when it was turned off.
+	c) Truck could be off for minutes,hours,days weeks etc.
+2) create a process that on startup shuts down any NTP services wait for a network, capture the time and
+   start NTP capture new time, calculate the delta and publish it to the cloud.	

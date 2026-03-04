@@ -4,7 +4,8 @@
 // A utility function to swap two elements 
 void swap(int* a, int* b) 
 { 
-    int t = *a; 
+    int t = *a;
+    printf ("Swapping contentf of %d and %d\n", *a, *b); 
     *a = *b; 
     *b = t; 
 } 
@@ -28,7 +29,6 @@ int partition (int arr[], int low, int high)
     int pivot = arr[high];    // pivot 
     int i = (low - 1);  // Index of smaller element 
   
-    printf("low: %d, high: %d\n\n", low, high); 
     // printArray(arr, high);
     for (int j = low; j <= high- 1; j++) 
     { 
@@ -60,11 +60,7 @@ void quickSort(int arr[], int low, int high)
   
         // Separately sort elements before 
         // partition and after partition 
-        printf("Interm array: [ "); 
-        printArray(arr, high);
         quickSort(arr, low, pi - 1); 
-        printf("Interm array: [ "); 
-        printArray(arr, high);
         quickSort(arr, pi + 1, high); 
         printf("Interm array: [ "); 
         printArray(arr, high);

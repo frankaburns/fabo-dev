@@ -7,7 +7,9 @@ import pandas as pd
 def parseDoc(doc_url):
     try:
         # Attempt to read HTML tables from the published URL
+        print(f"Attempting to read table directly from URL: {doc_url}")
         tables = pd.read_html(doc_url)
+        print(f"Read table directly from URL: {doc_url}")
 
         # Assuming the table you want is the first one found
         df = pd.DataFrame(tables[0])
