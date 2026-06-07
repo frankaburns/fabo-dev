@@ -5,16 +5,78 @@
 
 #define MIN_ELEMENT 1
 #define MAX_ELEMENT 1000000
-int  sum (int count,...) {
 
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+
+int  sum (int count,...) {
+   int idx;
+   int total = 0;
+   // Declare a variable of type va_list
+   va_list arg_ptr;
+     
+   // Initialize the va_list variable to the argument list
+   va_start(arg_ptr, count);
+     
+   // Loop through all the variable arguments
+   for (idx = 0; idx < count; idx++) {
+      // Get the next argument as an int and add it to the total
+      total += va_arg(arg_ptr, int);
+   }
+
+// Clean up the va_list variable
+   va_end(arg_ptr);
+
+   return total;
 }
 
 int min(int count,...) {
+   int idx;
+   int tmp = 0;
+   int min = 0;
 
+   // Declare a variable of type va_list
+   va_list arg_ptr;
+     
+   // Initialize the va_list variable to the argument list
+   va_start(arg_ptr, count);
+     
+   min = va_arg(arg_ptr, int);
+   // Loop through the rest of the variable arguments
+   for (idx = 1; idx < count; idx++) {
+      // Get the next argument as an int and add it to the total
+      tmp = va_arg(arg_ptr, int);
+      min = MIN(min, tmp);
+   }
+
+// Clean up the va_list variable
+   va_end(arg_ptr);
+
+   return min;
 }
 
 int max(int count,...) {
+   int idx;
+   int max = 0;
+   int tmp = 0;
+   // Declare a variable of type va_list
+   va_list arg_ptr;
+     
+   // Initialize the va_list variable to the argument list
+   va_start(arg_ptr, count);
+     
+   max = va_arg(arg_ptr, int);
+   // Loop through the rest of the variable arguments
+   for (idx = 1; idx < count; idx++) {
+      // Get the next argument as an int and add it to the total
+      tmp = va_arg(arg_ptr, int);
+      max = MAX(max, tmp);
+   }
 
+// Clean up the va_list variable
+   va_end(arg_ptr);
+
+   return max;
 }
 
 int test_implementations_by_sending_three_elements() {
