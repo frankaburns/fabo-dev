@@ -202,7 +202,7 @@ class markDown {
               }
            } else {
               int nameIdx = 0;
-              while (line[idx] != ' ' && line[idx] != end) {
+              while (line[idx] != ' ') {
                 tagName[nameIdx++] = line[idx++];
               }
                  
@@ -226,11 +226,11 @@ class markDown {
      string   str;
      section *tag = nullptr;
 
-     markDown(int lines, ifstream& file) {
+     markDown(int lines) {
         string address;
 
         for (int i=0; i<lines; i++) {
-           getline(file, address); // Now safely reads the full string with spaces
+           getline(cin, address); // Now safely reads the full string with spaces
            // cout << address << endl;
            parseLine(doc, address);
         }
@@ -241,10 +241,10 @@ class markDown {
         return doc;
      }
      
-     void processQueries(int queries, ifstream& file) {
+     void processQueries(int queries) {
         string address;
         for (int i=0; i<queries; i++) {
-           getline(file, address); // Now safely reads the full string with spaces
+           getline(cin, address); // Now safely reads the full string with spaces
            // cout << address << endl;
            findAttribute(address);
         }
@@ -337,18 +337,11 @@ int main() {
   
   string str;
   
-  // 1. Open the file stream
-  ifstream file("4-tag.txt");
-  if (!file.is_open()) {
-     cerr << "Error: Could not open the file.\n";
-     return 1;
-  }
-
-  file >> lines >> queries;
-  getline(file, str);
-  markDown *md = new markDown(lines, file);
+ cin >> lines >> queries;
+  getline(cin, str);
+  markDown *md = new markDown(lines);
   md->printSection(md->getDoc());
-  md->processQueries(queries, file);
+  md->processQueries(queries);
   
   return 0;
 }

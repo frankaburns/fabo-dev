@@ -1,12 +1,14 @@
-8 3
-<tag1 value = "value">
-<tag2 name = "name">
+8 5
+<tag1 value = "10.99">
+<tag2 name = "Ava Nayla">
 <tag3 another="another" final="final">
+<tag4 value = "dollars">
+</tag4>
 </tag3>
 </tag2>
 </tag1>
-<tag4 value = "value">
-</tag4>
 tag1.tag2~name
+tag1.tag2.tag3.tag4~value
+tag1.tag2.tag3~final
 tag1~name
 tag1~value
