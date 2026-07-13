@@ -149,7 +149,7 @@ class LRUCache : Cache {
 int main() {
    int n, capacity,i;
    
-   ifstream file("cache3.txt");
+   ifstream file("cache2.txt");
    if (!file.is_open()) {
       cerr << "Error: Could not open the file.\n";
       return 1;
