@@ -1,25 +1,20 @@
 /* Enter your macros here */
+
 #define INF 10000000
 
-#define minimum(a, b) ((a) < (b) ? (a) : (b))
-#define maximum(a, b) ((a) > (b) ? (a) : (b))
-
 #define TO_STR_HELPER(x) #x
-#define toStrStr(x) TO_STR_HELPER(x)
+#define toStr(x) TO_STR_HELPER(x)
 
-#define FUNCTION(NAME, OP) \
-    template<typename T> \
-    T NAME(T a, T b) { \
-        return (a OP b) ? a : b; \
-    }
+#define FUNCTION(NAME, OP)  \
+template <typename T>   \
+   T NAME(T a, T b) {       \
+   return (a OP b) ? a : b; \
+   }
+    
+#define io(v) (cin >> v, cin) // Reads the element directly
 
-#include <iostream>
-#include <vector>
-using namespace std;
-
-#if !defined toStr || !defined io || !defined FUNCTION || !defined INF
-#error Missing preprocessor definitions
-#endif 
+#define foreach(v, i) \
+for(int i=0; i<(int)v.size(); i++)
 
 FUNCTION(minimum, <)
 FUNCTION(maximum, >)
